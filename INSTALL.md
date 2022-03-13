@@ -253,3 +253,8 @@ CXX_FLAGS =  -Ofast -pipe -msse4.2 -funroll-all-loops -DNDEBUG
 improved speed from 22.7s to 22.4s. That points out that these switches help AND that the native sdsl-lite libs are somehow optimally compiled.
 
 I am not sure what the impact can be of the other libs, but we will find that out after profiling the code.
+
+## Building with clang
+
+env CC=clang CXX=clang++ cmake ..
+env CC=clang CXX=clang++ make -j 16

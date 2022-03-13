@@ -39,13 +39,14 @@
   (gnu packages compression)
   (gnu packages bioinformatics)
   (gnu packages build-tools)
-  (gnu packages commencement) ; gcc-toolchain
+  (gnu packages commencement) ; gcc-toolchain, gfortran-toolchain
   (gnu packages curl)
   (gnu packages datastructures)
   (gnu packages gdb)
   (gnu packages gcc)
   (gnu packages jemalloc)
   (gnu packages libffi)
+  (gnu packages llvm) ; for clang
   (gnu packages mpi)
   (gnu packages python)
   (gnu packages python-xyz)
@@ -67,14 +68,18 @@
     (build-system cmake-build-system)
     (inputs
      `(
+       ("clang" ,clang)      ; add this to test clang builds
+       ("lld" ,lld)          ; add this to test clang builds
+       ("gfortran-toolchain" ,gfortran-toolchain)
+
        ("coreutils" ,coreutils)
        ; ("cpp-httplib" ,cpp-httplib) later!
        ("pybind11" ,pybind11) ;; see libstd++ note in remarks above
        ; ("intervaltree" ,intervaltree) later!
        ("jemalloc" ,jemalloc)
-       ("gcc" ,gcc-11)
-       ("gcc-lib" ,gcc-11 "lib")
-       ("gcc-toolchain" ,gcc-toolchain)
+       ; ("gcc" ,gcc-11)
+       ; ("gcc-lib" ,gcc-11 "lib")
+       ; ("gcc-toolchain" ,gcc-toolchain)
        ("gdb" ,gdb)
        ("git" ,git)
        ; ("lodepng" ,lodepng) later!
@@ -97,9 +102,7 @@
              (with-output-to-file "include/odgi_git_version.hpp"
                (lambda ()
                  (format #t "#define ODGI_GIT_VERSION \"~a\"~%" version)))
-             #t))
-         (delete 'check))
-        #:make-flags (list ,(string-append "CC=" (cc-for-target)))))
+             #t)))))
      (synopsis "odgi pangenome optimized dynamic sequence graph implementation")
      (description
 "odgi pangenome graph tooling provides an efficient, succinct dynamic

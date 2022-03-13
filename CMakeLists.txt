@@ -59,8 +59,8 @@ if (${CMAKE_BUILD_TYPE} MATCHES "Release")
     set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG") # reset CXX_FLAGS to replace -O3 with -Ofast
   endif (EXTRA_FLAGS)
   # Use all standard-compliant optimizations - always add these:
-  set (CMAKE_C_FLAGS "${OpenMP_C_FLAGS} ${PIC_FLAG} ${EXTRA_FLAGS}")
-  set (CMAKE_CXX_FLAGS "${OpenMP_CXX_FLAGS} ${PIC_FLAG} ${EXTRA_FLAGS}")
+  set (CMAKE_C_FLAGS "${EXTRA_FLAGS}")
+  set (CMAKE_CXX_FLAGS "${EXTRA_FLAGS}")
 endif ()
 
 # set(CMAKE_BUILD_TYPE Debug) -- don't uncomment this, instead run
@@ -95,11 +95,11 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
   set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS} -lomp")
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  find_package(OpenMP REQUIRED)
+  # find_package(OpenMP REQUIRED)
   # add the flags it detects to the compile flags
-  set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS} -fopenmp")
-  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -fopenmp")
-  set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+  # set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS} -fopenmp")
+  # set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} -fopenmp")
+  # set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
 # Set the output folder where your program will be created

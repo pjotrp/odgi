@@ -11,7 +11,7 @@
 #include <cassert>
 #include <atomic>
 // #include "bmap.hpp"
-#include "dynamic.hpp"
+#include <dynamic/dynamic.hpp>
 #include "varint.hpp"
 #include "dna.hpp"
 
@@ -82,7 +82,7 @@ class node_t {
             return type & (1 << 3);
         }
     };
-    
+
 public:
     node_t(void); // constructor
     // locking methods

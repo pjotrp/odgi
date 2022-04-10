@@ -7,6 +7,7 @@ description = "ODGI interface for Rust"
 repository = "https://github.com/pangenome/odgi"
 edition = "2018"
 publish = false
+links = "odgi"
 
 [dependencies]
 cxx = "1.0"

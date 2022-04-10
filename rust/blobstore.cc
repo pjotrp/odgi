@@ -1,4 +1,5 @@
 #include "odgi-rs/rust/blobstore.h"
+#include "odgi-rs/src/odgi-api.h"
 #include "odgi-rs/rust/main.rs.h"
 #include <algorithm>
 #include <functional>

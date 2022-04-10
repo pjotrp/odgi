@@ -8,7 +8,7 @@
 
 #include <cstddef>
 
-#include "odgi.hpp"
+#include "odgi-graph.hpp"
 
 using namespace odgi;
 

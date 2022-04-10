@@ -1,0 +1,19 @@
+[package]
+name = "odgi-rs"
+version = "0.0.1"
+authors = ["Pjotr Prins <pjotrprins@thebird.nl>"]
+license = "MIT"
+description = "ODGI interface for Rust"
+repository = "https://github.com/pangenome/odgi"
+edition = "2018"
+publish = false
+
+[dependencies]
+cxx = "1.0"
+
+[build-dependencies]
+cxx-build = "1.0"
+
+[[bin]]
+name = "odgi-rs"
+path = "rust/main.rs"
